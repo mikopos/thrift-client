@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.marios.gavriil.thriftclient.utils.Constants.*;
 
-import java.util.Random;
+import java.time.Instant;
 
 @Service
 public class LogsServiceImpl {
@@ -27,31 +27,32 @@ public class LogsServiceImpl {
     public void logSomeStuff(){
 
         LogsDTO logsDTO = new LogsDTO();
+        long dateMillis = Instant.now().toEpochMilli();
         String level = LogLevel.getRandomLevel().toString();
 
         switch (level) {
-            case "DEBUG":
+            case Constants.DEBUG:
                 logsDTO.setCode((byte)1);
-                logsDTO.setDatetime("dateTime");
-                logsDTO.setMessage("This is a Debug log...");
+                logsDTO.setDatetime(Long.toString(dateMillis));
+                logsDTO.setMessage(Constants.DEBUG_MESSAGE);
                 logsDTO.setLevel(level);
                 break;
-            case "INFO":
+            case Constants.INFO:
                 logsDTO.setCode((byte)1);
-                logsDTO.setDatetime("dateTime");
-                logsDTO.setMessage("This is a Info log...");
+                logsDTO.setDatetime(Long.toString(dateMillis));
+                logsDTO.setMessage(Constants.INFO_MESSAGE);
                 logsDTO.setLevel(level);
                 break;
-            case "WARN":
+            case Constants.WARN:
                 logsDTO.setCode((byte)1);
-                logsDTO.setDatetime("dateTime");
-                logsDTO.setMessage("This is a Warn log...");
+                logsDTO.setDatetime(Long.toString(dateMillis));
+                logsDTO.setMessage(Constants.WARN_MESSAGE);
                 logsDTO.setLevel(level);
                 break;
-            case "ERROR":
+            case Constants.ERROR:
                 logsDTO.setCode((byte)1);
-                logsDTO.setDatetime("dateTime");
-                logsDTO.setMessage("This is an Error log...");
+                logsDTO.setDatetime(Long.toString(dateMillis));
+                logsDTO.setMessage(Constants.ERROR_MESSAGE);
                 logsDTO.setLevel(level);
                 break;
         }

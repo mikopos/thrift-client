@@ -12,11 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class ThriftClientApplication {
 
     public static void main(String[] args) {
-
-        ApplicationContext ctx = SpringApplication.run(ThriftClientApplication.class, args);
-//        LogsServiceImpl logsService = new LogsServiceImpl();
-//
-//        logsService.logSomeStuff();
+        SpringApplication.run(ThriftClientApplication.class, args);
     }
 
 }

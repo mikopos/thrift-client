@@ -23,7 +23,7 @@ public class LogsServiceImpl {
     private Logger logger = LoggerFactory.getLogger(LogsService.class);
 
 
-    @Scheduled(fixedDelay = 1000L)
+    @Scheduled(fixedDelay = 10000L)
     public void logSomeStuff(){
 
         LogsDTO logsDTO = new LogsDTO();
